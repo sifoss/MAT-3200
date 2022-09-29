@@ -9,7 +9,7 @@ class Animator:
         self.y1 = y1[:,::skip_frames]  #f(t, x)
         self.y2 = y2[:,::skip_frames]
 
-    def animate(self, save=False):
+    def animate(self):
         x, y1, y2 = self.x, self.y1, self.y2
         self.x_axis = [x[0], x[-1]]
         self.y_axis = [np.min(np.c_[y1, y2])-0.1, np.max(np.c_[y1, y2])+0.1]
@@ -27,6 +27,6 @@ class Animator:
         self.ani = matplotlib.animation.FuncAnimation(fig, an, frames=len(self.t))
         
         
-        if save==True:
-            self.ani.save('coil.gif',writer='ffmpeg') 
+    def save(self, name)
+            self.ani.save(name +'.gif',writer='ffmpeg') 
             
